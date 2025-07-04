@@ -20,20 +20,10 @@ Built for engineering students to easily calculate and strategize their grades!
 ## 🖥️ Live Demo
 
 > [Try it on Netlify!](#)  
-> *(Link will appear after deployment)*
+> *(https://sgpa-calculator2025.netlify.app/)*
 
 ---
 
-## 📸 Screenshots
-
-<details>
-  <summary>Click to expand</summary>
-  
-  ![Main UI](https://user-images.githubusercontent.com/yourusername/sgpa-main-ui.png)
-  ![Grade Planner](https://user-images.githubusercontent.com/yourusername/sgpa-grade-planner.png)
-</details>
-
----
 
 ## 🛠️ How to Use
 
@@ -47,3 +37,37 @@ Built for engineering students to easily calculate and strategize their grades!
 ---
 
 ## 📄 Project Structure
+
+```
+
+---
+
+## 📝 SGPA Formula
+
+> **SGPA = 10 - Σ[(0.05 × credits) × n]**  
+> _n is based on grade (O:0, A+:1, A:2, B+:3, B:4, C:5, P:6, F:10)_
+
+---
+
+## 🖥️ Local Development
+
+1. Clone this repository:
+   ```sh
+   git clone https://github.com/Omprakash-p06/sgpa-calculator.git
+   ```
+2. Open `index.html` in your browser.
+
+---
+
+## 🙋‍♂️ Contributing
+
+Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
+
+---
+
+## ⭐️ Show your support
+
+If you like this project, give it a ⭐️ on [GitHub](https://github.com/Omprakash-p06/sgpa-calculator)!
+
+---
+
