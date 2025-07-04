@@ -8,30 +8,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #005fec;
-            --primary-dark: #004abc;
-            --accent: #27ae60;
-            --danger: #e74c3c;
-            --bg: #f0f2f5;
-            --card-bg: #ffffff;
-            --border: #dee2e6;
-            --shadow: 0 4px 24px rgba(0, 31, 63, 0.08);
+            --primary: #1976d2;
+            --primary-dark: #115293;
+            --accent: #43a047;
+            --danger: #d32f2f;
+            --bg: #f5f7fa;
+            --card-bg: #fff;
+            --border: #e0e3e7;
+            --shadow: 0 2px 8px 0 rgba(25, 118, 210, 0.08);
             --radius: 12px;
-            --transition: 0.3s ease;
+            --transition: 0.18s cubic-bezier(.4,2,.6,1);
         }
         html {
             scroll-behavior: smooth;
         }
         body {
-            background-color: var(--bg);
-            background-image:
-                linear-gradient(45deg, #e9ecef 25%, transparent 25%),
-                linear-gradient(-45deg, #e9ecef 25%, transparent 25%),
-                linear-gradient(45deg, transparent 75%, #e9ecef 75%),
-                linear-gradient(-45deg, transparent 75%, #e9ecef 75%);
-            background-size: 20px 20px;
-            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #343a40;
+            background: var(--bg);
+            min-height: 100vh;
+            font-family: 'Inter', 'Roboto', 'Segoe UI', Arial, sans-serif;
+            color: #212b36;
             margin: 0;
             padding: 0;
         }
@@ -41,55 +36,66 @@
             flex-direction: column;
         }
         header {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background: var(--primary);
             color: #fff;
-            padding: 48px 0 32px 0;
+            padding: 40px 0 20px 0;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 95, 236, 0.1);
+            box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+            border-bottom-left-radius: var(--radius);
+            border-bottom-right-radius: var(--radius);
+            position: relative;
         }
         header h1 {
-            font-size: 2.8rem;
+            font-size: 2.3rem;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
         }
         header p {
-            font-size: 1.2rem;
-            color: #e9ecef;
+            font-size: 1.08rem;
+            color: #e3eaf2;
             max-width: 700px;
             margin: 0 auto;
         }
         .container {
-            max-width: 960px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 32px 16px;
+            padding: 28px 8px 18px 8px;
             flex: 1;
         }
         .card {
             background: var(--card-bg);
             border-radius: var(--radius);
             box-shadow: var(--shadow);
-            padding: 24px;
+            padding: 20px 18px 16px 18px;
             margin-bottom: 24px;
             border: 1px solid var(--border);
-            transition: all var(--transition);
+            transition: box-shadow 0.18s, transform 0.12s, border-color 0.12s, background 0.18s;
+            position: relative;
         }
         .card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 32px rgba(0, 31, 63, 0.1);
+            transform: translateY(-1px) scale(1.01);
+            box-shadow: 0 4px 16px rgba(25, 118, 210, 0.13);
+            border-color: var(--primary);
         }
         .card-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 16px;
+            margin-bottom: 14px;
+            padding-bottom: 8px;
             border-bottom: 1px solid var(--border);
+            background: none;
+            color: var(--primary-dark);
+            border-radius: 8px 8px 0 0;
+            box-shadow: none;
         }
         .card-title {
-            font-size: 1.5rem;
-            color: var(--primary);
+            font-size: 1.15rem;
+            color: var(--primary-dark);
             font-weight: 700;
             margin: 0;
+            letter-spacing: 0.3px;
         }
         .input-group label {
             display: block;
@@ -117,85 +123,118 @@
         }
         .btn {
             background: var(--primary);
-            color: white;
+            color: #fff;
             border: none;
-            padding: 12px 22px;
-            border-radius: 8px;
+            padding: 9px 18px;
+            border-radius: 6px;
             cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
+            font-size: 0.98rem;
+            font-weight: 700;
             transition: all var(--transition);
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            box-shadow: 0 2px 4px rgba(0, 95, 236, 0.1);
-            letter-spacing: 0.5px;
+            gap: 7px;
+            box-shadow: 0 1px 2px rgba(25,118,210,0.10);
+            letter-spacing: 0.3px;
         }
         .btn:hover, .btn:focus {
             background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 95, 236, 0.2);
+            transform: translateY(-1px) scale(1.01);
+            box-shadow: 0 2px 6px rgba(25,118,210,0.13);
         }
         .btn.secondary {
-            background: #f1f3f5;
-            color: #495057;
-            border: 1px solid #dee2e6;
+            background: #f5f7fa;
+            color: var(--primary-dark);
+            border: 1px solid var(--primary);
             box-shadow: none;
         }
         .btn.secondary:hover {
-            background: #e9ecef;
-            color: #212529;
-            border-color: #ced4da;
+            background: #e3eaf2;
+            color: var(--primary-dark);
+            border-color: var(--primary-dark);
         }
         .table-responsive {
             margin: -16px 0;
         }
         table {
             width: 100%;
-            border-collapse: collapse;
-            margin: 16px 0;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 10px 0;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 4px rgba(25,118,210,0.04);
         }
         th, td {
-            padding: 16px;
+            padding: 12px 8px;
             text-align: left;
             border-bottom: 1px solid var(--border);
             vertical-align: middle;
+            transition: background 0.12s, color 0.12s;
+            font-size: 0.98em;
         }
         th {
-            background-color: #f8f9fa;
-            color: #495057;
-            font-weight: 600;
+            background-color: #f5f7fa;
+            color: #1976d2;
+            font-weight: 700;
             text-transform: uppercase;
-            font-size: 0.85rem;
+            font-size: 0.95rem;
             letter-spacing: 0.5px;
         }
         tr:last-child td {
             border-bottom: none;
         }
-        tr:hover {
-            background-color: #f8f9fa;
+        tr:hover td {
+            background-color: #e3eaf2;
+        }
+        .editable-cell {
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.12s, box-shadow 0.12s;
+        }
+        .editable-cell:hover, .editable-cell:focus {
+            background: #e3eaf2;
+            box-shadow: 0 0 0 2px var(--primary);
+        }
+        .inline-edit-input, .inline-edit-select {
+            width: 90%;
+            padding: 5px 8px;
+            font-size: 1em;
+            border: 1px solid var(--primary);
+            border-radius: 5px;
+            outline: none;
+            background: #fff;
+            color: #212b36;
+            box-shadow: 0 1px 2px rgba(25,118,210,0.07);
+            transition: border 0.12s;
+        }
+        .inline-edit-input:focus, .inline-edit-select:focus {
+            border: 2px solid var(--primary-dark);
         }
         .sgpa-formula {
-            margin-top: 18px;
-            font-size: 1rem;
-            color: #495057;
-            background-color: #f8f9fa;
-            padding: 12px;
-            border-radius: 8px;
+            margin-top: 10px;
+            font-size: 0.98rem;
+            color: var(--primary-dark);
+            background: #f5f7fa;
+            padding: 10px;
+            border-radius: 6px;
             border: 1px solid var(--border);
+            box-shadow: 0 1px 2px rgba(25,118,210,0.04);
         }
         .sgpa-formula .formula-note {
             display: block;
-            font-size: 0.9em;
-            color: #6c757d;
-            margin-top: 4px;
+            font-size: 0.91em;
+            color: var(--primary);
+            margin-top: 3px;
         }
         @media (max-width: 768px) {
-            .card-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 12px;
-            }
+            .container { padding: 6px 2px; }
+            .card { padding: 6px 2px; }
+            .card-header { flex-direction: column; align-items: flex-start; gap: 6px; padding-bottom: 4px; }
+            th, td { padding: 6px; font-size: 0.96em; }
+            .btn, .btn.secondary { padding: 7px 8px; font-size: 0.96em; }
+            .grade-chip { padding: 3px 7px; font-size: 0.93em; }
         }
         
         /* Modal Styles */
@@ -212,37 +251,37 @@
             animation: fadeIn 0.3s;
         }
         .modal-content {
-            background-color: #fff;
+            background: #fff;
             margin: 10% auto;
             padding: 0;
-            border: 1px solid #888;
-            width: 90%;
-            max-width: 500px;
+            border: 1px solid var(--primary);
+            width: 92%;
+            max-width: 480px;
             border-radius: var(--radius);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            animation: slideIn 0.3s;
+            box-shadow: 0 4px 16px rgba(25,118,210,0.13);
+            animation: slideIn 0.18s;
         }
         .modal-header {
-            padding: 16px 24px;
-            background-color: var(--primary);
-            color: white;
+            padding: 10px 16px;
+            background: var(--primary);
+            color: #fff;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-top-left-radius: var(--radius);
             border-top-right-radius: var(--radius);
         }
-        .modal-header h2 { margin: 0; font-size: 1.5rem; }
-        .modal-body { padding: 24px; display: flex; flex-direction: column; gap: 16px; }
+        .modal-header h2 { margin: 0; font-size: 1.08rem; }
+        .modal-body { padding: 14px; display: flex; flex-direction: column; gap: 8px; }
         .close-btn {
-            color: white;
+            color: #fff;
             float: right;
-            font-size: 28px;
+            font-size: 20px;
             font-weight: bold;
             background: none;
             border: none;
             cursor: pointer;
-            opacity: 0.8;
+            opacity: 0.85;
             transition: opacity var(--transition);
         }
         .close-btn:hover { opacity: 1; }
@@ -295,48 +334,191 @@
         .tool-result { margin-top: 20px; }
         .tool-description { color: #6c757d; font-size: 1rem; margin: -8px 0 16px 0; }
         .sgpa-result-box {
-            background: #e7f5ff;
+            background: #f5f7fa;
             color: var(--primary-dark);
+            border-radius: 6px;
+            border: 1px solid var(--primary);
+            box-shadow: 0 1px 2px rgba(25,118,210,0.07);
+            padding: 10px 12px;
+            font-size: 1em;
+            margin-top: 8px;
         }
 
         /* Grade Chip Styles */
         .grade-chips-row {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 12px;
+            gap: 6px;
+            margin-top: 7px;
         }
         .grade-chip {
             display: inline-flex;
             align-items: center;
-            background-color: #f1f3f5;
-            border-radius: 20px;
-            padding: 8px 14px;
+            background: #f5f7fa;
+            border-radius: 999px;
+            padding: 5px 12px;
             font-size: 0.95rem;
-            font-weight: 500;
-            border: 1px solid var(--border);
+            font-weight: 600;
+            border: 1px solid var(--primary);
             transition: all var(--transition);
+            box-shadow: 0 1px 2px rgba(25,118,210,0.06);
         }
         .chip-label {
-            color: #495057;
-            font-weight: 600;
-            margin-right: 8px;
+            color: var(--primary-dark);
+            font-weight: 700;
+            margin-right: 6px;
         }
         .chip-grade {
-            font-weight: 700;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 0.9rem;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 999px;
+            font-size: 0.93rem;
             color: #fff;
         }
-        .chip-grade.O { background-color: #27ae60; }
-        .chip-grade.Aplus { background-color: #2980b9; }
-        .chip-grade.A { background-color: #3498db; }
-        .chip-grade.Bplus { background-color: #f39c12; }
-        .chip-grade.B { background-color: #f1c40f; }
-        .chip-grade.C { background-color: #e67e22; }
-        .chip-grade.P { background-color: #8e44ad; }
-        .chip-grade.F { background-color: #c0392b; }
+        .chip-grade.O { background-color: #43a047; }
+        .chip-grade.Aplus { background-color: #1976d2; }
+        .chip-grade.A { background-color: #115293; }
+        .chip-grade.Bplus { background-color: #f59e42; }
+        .chip-grade.B { background-color: #fde047; color: #212b36; }
+        .chip-grade.C { background-color: #fbbf24; }
+        .chip-grade.P { background-color: #a78bfa; }
+        .chip-grade.F { background-color: #d32f2f; }
+        @media (max-width: 600px) {
+            .container {
+                padding: 12px 2px;
+            }
+            .card {
+                padding: 10px;
+            }
+            .card-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+                padding-bottom: 8px;
+            }
+            th, td {
+                padding: 8px;
+                font-size: 0.98em;
+            }
+            .btn, .btn.secondary {
+                padding: 10px 12px;
+                font-size: 0.98em;
+            }
+            .grade-chip {
+                padding: 6px 8px;
+                font-size: 0.92em;
+            }
+        }
+        /* Dark mode styles */
+        body.dark-mode {
+            background: #181e29;
+            color: #e0e3e7;
+        }
+        body.dark-mode .card {
+            background: #232a36;
+            color: #e0e3e7;
+            border-color: #232a36;
+            box-shadow: 0 2px 8px 0 rgba(25, 118, 210, 0.13);
+        }
+        body.dark-mode .card-header {
+            background: none;
+            color: #90caf9;
+        }
+        body.dark-mode .card-title, body.dark-mode th {
+            color: #fff;
+        }
+        body.dark-mode table {
+            background: #232a36;
+            color: #e0e3e7;
+        }
+        body.dark-mode th {
+            background-color: #1e293b;
+            color: #fff;
+        }
+        body.dark-mode th, body.dark-mode td {
+            border-bottom: 1px solid #334155;
+        }
+        body.dark-mode tr:hover td {
+            background-color: #1e293b;
+        }
+        body.dark-mode .editable-cell:hover, body.dark-mode .editable-cell:focus {
+            background: #334155;
+            box-shadow: 0 0 0 2px #1976d2;
+        }
+        body.dark-mode .inline-edit-input, body.dark-mode .inline-edit-select {
+            background: #232a36;
+            color: #e0e3e7;
+            border: 1px solid #1976d2;
+        }
+        body.dark-mode .inline-edit-input:focus, body.dark-mode .inline-edit-select:focus {
+            border: 2px solid #90caf9;
+        }
+        body.dark-mode .btn {
+            background: #1976d2;
+            color: #fff;
+        }
+        body.dark-mode .btn.secondary {
+            background: #334155;
+            color: #90caf9;
+            border: 1px solid #1976d2;
+        }
+        body.dark-mode .btn.secondary:hover {
+            background: #232a36;
+            color: #fff;
+            border-color: #90caf9;
+        }
+        body.dark-mode .sgpa-formula {
+            background: #232a36;
+            color: #90caf9;
+            border-color: #334155;
+        }
+        body.dark-mode .grade-chip {
+            background: #334155;
+            border-color: #1976d2;
+            color: #e0e3e7;
+        }
+        body.dark-mode .chip-label {
+            color: #90caf9;
+        }
+        body.dark-mode .chip-grade.O { background-color: #43a047; color: #fff; }
+        body.dark-mode .chip-grade.Aplus { background-color: #1976d2; color: #fff; }
+        body.dark-mode .chip-grade.A { background-color: #115293; color: #fff; }
+        body.dark-mode .chip-grade.Bplus { background-color: #f59e42; color: #232a36; }
+        body.dark-mode .chip-grade.B { background-color: #fde047; color: #232a36; }
+        body.dark-mode .chip-grade.C { background-color: #fbbf24; color: #232a36; }
+        body.dark-mode .chip-grade.P { background-color: #a78bfa; color: #fff; }
+        body.dark-mode .chip-grade.F { background-color: #d32f2f; color: #fff; }
+        body.dark-mode .sgpa-result-box {
+            background: #232a36;
+            color: #90caf9;
+            border: 1px solid #1976d2;
+        }
+        body.dark-mode .modal-content {
+            background: #232a36;
+            color: #e0e3e7;
+            border-color: #1976d2;
+            box-shadow: 0 4px 16px rgba(25,118,210,0.13);
+        }
+        body.dark-mode .modal-header {
+            background: none;
+            color: #90caf9;
+        }
+        body.dark-mode .notification {
+            background: #23242b;
+            color: #e3e6eb;
+            border: 1px solid #35384a;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+        }
+        body.dark-mode #darkModeToggle {
+            background: linear-gradient(90deg, #23242b 0%, #2d3a4a 100%);
+            color: #7bb6ff;
+            border: 1px solid #35384a;
+        }
+        body.dark-mode #darkModeToggle:hover {
+            background: #1a1b22;
+            color: #fff;
+            border-color: #7bb6ff;
+        }
     </style>
 </head>
 <body>
@@ -344,6 +526,14 @@
     <header>
         <h1><i class="fas fa-graduation-cap"></i> Engineering SGPA Calculator</h1>
         <p>A smart tool to plan your semester, simulate results, and achieve your desired SGPA.</p>
+        <div style="margin-top:18px; display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
+            <a href="https://github.com/Omprakash-p06/sgpa-calculator" target="_blank" rel="noopener" class="btn secondary" style="display:inline-flex;align-items:center;gap:8px;font-size:1em;">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <button id="darkModeToggle" class="btn secondary" style="display:inline-flex;align-items:center;gap:8px;font-size:1em;">
+                <i class="fas fa-moon"></i> <span id="darkModeText">Dark Mode</span>
+            </button>
+        </div>
     </header>
     <div class="container">
         <!-- Main Subjects Card -->
@@ -360,7 +550,7 @@
                             <th>Credits</th>
                             <th>Internal Marks</th>
                             <th>Desired Grade</th>
-                            <th>Action</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody id="subjectsTableBody">
@@ -538,48 +728,90 @@
         }
         subjects.forEach((subject, idx) => {
             const row = document.createElement('tr');
-            if (subject.isEditing) {
-                row.innerHTML = `
-                    <td><input type="text" id="edit-name-${subject.id}" value="${subject.name}" class="see-input" style="width:95%;"></td>
-                    <td><input type="number" id="edit-credits-${subject.id}" value="${subject.credits}" min="1" max="5" class="see-input" style="width:60px;"></td>
-                    <td><input type="number" id="edit-internals-${subject.id}" value="${subject.internalMarks}" min="0" max="50" class="see-input" style="width:60px;"></td>
-                    <td>
-                        <select id="edit-grade-${subject.id}" class="see-input" style="width:95%;">
-                            <option value="" ${!subject.desiredGrade ? 'selected' : ''}>-</option>
-                            <option value="O" ${subject.desiredGrade === 'O' ? 'selected' : ''}>O</option>
-                            <option value="A+" ${subject.desiredGrade === 'A+' ? 'selected' : ''}>A+</option>
-                            <option value="A" ${subject.desiredGrade === 'A' ? 'selected' : ''}>A</option>
-                            <option value="B+" ${subject.desiredGrade === 'B+' ? 'selected' : ''}>B+</option>
-                            <option value="B" ${subject.desiredGrade === 'B' ? 'selected' : ''}>B</option>
-                            <option value="C" ${subject.desiredGrade === 'C' ? 'selected' : ''}>C</option>
-                            <option value="P" ${subject.desiredGrade === 'P' ? 'selected' : ''}>P</option>
-                            <option value="F" ${subject.desiredGrade === 'F' ? 'selected' : ''}>F</option>
-                        </select>
-                    </td>
-                    <td>
-                        <div style="display:flex; gap: 6px;">
-                            <button onclick="saveSubject(${subject.id})" class="btn" style="padding:7px 12px;font-size:0.98em;"><i class="fas fa-save"></i></button>
-                            <button onclick="cancelEdit(${subject.id})" class="btn secondary" style="padding:7px 12px;font-size:0.98em;"><i class="fas fa-times"></i></button>
-                        </div>
-                    </td>
-                `;
-            } else {
-                row.innerHTML = `
-                    <td>${subject.name}</td>
-                    <td>${subject.credits}</td>
-                    <td>${subject.internalMarks}/50</td>
-                    <td>${subject.desiredGrade || '-'}</td>
-                    <td>
-                        <div style="display:flex; gap: 6px;">
-                            <button onclick="editSubject(${subject.id})" class="btn secondary" style="padding:7px 12px;font-size:0.98em;"><i class="fas fa-pencil-alt"></i></button>
-                            <button onclick="removeSubject(${subject.id})" class="btn secondary" style="padding:7px 12px;font-size:0.98em;"><i class="fas fa-trash"></i></button>
-                        </div>
-                    </td>
-                `;
-            }
+            row.innerHTML = `
+                <td>${subject.name}</td>
+                <td class="editable-cell" tabindex="0" data-type="credits" data-idx="${idx}">${subject.credits}</td>
+                <td class="editable-cell" tabindex="0" data-type="internalMarks" data-idx="${idx}">${subject.internalMarks}/50</td>
+                <td class="editable-cell" tabindex="0" data-type="desiredGrade" data-idx="${idx}">${subject.desiredGrade || '-'}</td>
+                <td><button class="btn secondary" style="padding:6px 10px;min-width:0;" title="Remove Subject" onclick="removeSubject(${subject.id})"><i class="fas fa-trash"></i></button></td>
+            `;
             subjectsTableBody.appendChild(row);
         });
+        // Inline editing logic
+        subjectsTableBody.querySelectorAll('.editable-cell').forEach(cell => {
+            cell.addEventListener('click', handleInlineEdit);
+            cell.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    handleInlineEdit.call(this, e);
+                }
+            });
+        });
         renderSEESimTable();
+    }
+    function handleInlineEdit(e) {
+        const cell = e.currentTarget;
+        const idx = parseInt(cell.getAttribute('data-idx'));
+        const type = cell.getAttribute('data-type');
+        const subject = subjects[idx];
+        if (!subject) return;
+        // Prevent multiple editors
+        if (cell.querySelector('input,select')) return;
+        let input;
+        if (type === 'internalMarks') {
+            input = document.createElement('input');
+            input.type = 'number';
+            input.min = 0;
+            input.max = 50;
+            input.value = subject.internalMarks;
+            input.className = 'inline-edit-input';
+        } else if (type === 'credits') {
+            input = document.createElement('input');
+            input.type = 'number';
+            input.min = 1;
+            input.max = 5;
+            input.value = subject.credits;
+            input.className = 'inline-edit-input';
+        } else if (type === 'desiredGrade') {
+            input = document.createElement('select');
+            input.className = 'inline-edit-select';
+            ['','O','A+','A','B+','B','C','P','F'].forEach(g => {
+                const opt = document.createElement('option');
+                opt.value = g;
+                opt.textContent = g || '-';
+                if (subject.desiredGrade === g) opt.selected = true;
+                input.appendChild(opt);
+            });
+        }
+        if (!input) return;
+        cell.innerHTML = '';
+        cell.appendChild(input);
+        input.focus();
+        input.addEventListener('blur', () => saveInlineEdit(cell, idx, type, input.value));
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                input.blur();
+            } else if (e.key === 'Escape') {
+                renderSubjectsTable();
+            }
+        });
+    }
+    function saveInlineEdit(cell, idx, type, value) {
+        if (type === 'internalMarks') {
+            let v = parseInt(value);
+            if (isNaN(v) || v < 0) v = 0;
+            if (v > 50) v = 50;
+            subjects[idx].internalMarks = v;
+        } else if (type === 'credits') {
+            let v = parseInt(value);
+            if (isNaN(v) || v < 1) v = 1;
+            if (v > 5) v = 5;
+            subjects[idx].credits = v;
+        } else if (type === 'desiredGrade') {
+            subjects[idx].desiredGrade = value;
+        }
+        renderSubjectsTable();
     }
 
     // --- SEE Simulation Table ---
@@ -997,27 +1229,34 @@
         evt.currentTarget.className += " active";
     }
 
-    // --- Sample Data on Load ---
+    // --- Dark Mode Logic ---
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const darkModeText = document.getElementById('darkModeText');
+    function setDarkMode(enabled) {
+        if (enabled) {
+            document.body.classList.add('dark-mode');
+            darkModeText.textContent = 'Light Mode';
+            darkModeToggle.querySelector('i').classList.remove('fa-moon');
+            darkModeToggle.querySelector('i').classList.add('fa-sun');
+        } else {
+            document.body.classList.remove('dark-mode');
+            darkModeText.textContent = 'Dark Mode';
+            darkModeToggle.querySelector('i').classList.remove('fa-sun');
+            darkModeToggle.querySelector('i').classList.add('fa-moon');
+        }
+        localStorage.setItem('sgpa_dark_mode', enabled ? '1' : '0');
+    }
+    darkModeToggle.addEventListener('click', () => {
+        setDarkMode(!document.body.classList.contains('dark-mode'));
+    });
+    // On load, set dark mode if preferred
     document.addEventListener('DOMContentLoaded', () => {
-        const sampleSubjects = [
-            {name: "Maths", credits: 3, internalMarks: 28, desiredGrade: "B"},
-            {name: "Microcontrollers", credits: 4, internalMarks: 40, desiredGrade: "A+"},
-            {name: "DAA", credits: 3, internalMarks: 40, desiredGrade: "A+"},
-            {name: "DBMS", credits: 3, internalMarks: 36, desiredGrade: "A"},
-            {name: "Advanced Java", credits: 3, internalMarks: 30, desiredGrade: "A"},
-            {name: "javascript", credits: 1, internalMarks: 32, desiredGrade: "A"},
-            {name: "DAA lab", credits: 1, internalMarks: 38, desiredGrade: "A+"},
-            {name: "DBMS lab", credits: 1, internalMarks: 38, desiredGrade: "A+"},
-            {name: "Adv Java Lab", credits: 1, internalMarks: 49, desiredGrade: "O"}
-        ];
-        sampleSubjects.forEach(subject => {
-            subjects.push({
-                id: Date.now() + Math.random(),
-                ...subject,
-                isEditing: false
-            });
-        });
-        renderSubjectsTable();
+        const darkPref = localStorage.getItem('sgpa_dark_mode');
+        if (darkPref === '1' || (darkPref === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            setDarkMode(true);
+        } else {
+            setDarkMode(false);
+        }
     });
 </script>
 </body>
